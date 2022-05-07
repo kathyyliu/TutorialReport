@@ -1,0 +1,69 @@
+\documentclass[10pt,twocolumn]{article} 
+
+\usepackage{oxycomps} % use the main oxycomps style file
+
+\bibliography{references}
+
+\pdfinfo{
+    /Title (Tutorial Report)
+    /Author (Kathy Liu)
+}
+
+\title{Tutorial Report: User Interviews for Style Checker}
+
+\author{Kathy Liu}
+\affiliation{Occidental College}
+\email{kliu4@oxy.edu}
+
+\begin{document}
+
+\maketitle
+
+\section{Methods}
+I conducted a series of user interviews in order to inform myself of the needs of the audience I wish to address through this project. To guide the formation of the interview process, I followed a User Interview tutorial in User Interviews Inc.’s The UX Research Field Guide \cite{interview_tutorial}. As this project aims to help both teachers and students of code style, I chose to conduct interviews to learn more about teachers’ beliefs about code style, and the context in which code style is considered in their courses. 
+
+To prepare the interview guide, I first considered the general themes of information from teachers that I wanted to know in relation to the functionality of the product. The themes I identified were: the theoretical role of code style, teaching style, and grading style. Next, I wrote 2-4 questions addressing each of these themes, intentionally keeping the wording open-ended and minimizing presumptions (fig. 1). For example, instead of asking “Do you think good code style is consistency?” Question 1 lets the participant shape their answer much more freely, which also results in a more authentic response. Questions 5 and 9 will also be very useful in determining the specific features of the final web app. In the questions related to the specific courses they teach, participants mostly spoke about the most recent semester, or other courses they taught within the last year. 
+
+\begin{figure}
+\begin{lstlisting}
+1. How would you define good code style?
+2. What role, if any, does code style play for students in each of your courses?
+3. What is your approach to teaching code style in your classes and why do you use it?
+4. Have you used any other approaches or products in the past to teach style? If so, what did you think of each approach or why not?
+5. If someone were to create your ideal product to teach style, what functionality would you expect it to have?
+6. Please give me a general description of the assignments you give to your students in each of your courses.
+7. What is your approach to grading code style in your classes and why do you use it?
+8. Have you used any other approaches or products in the past to grade style? If so, what did you think of each approach or why not?
+9. If someone were to create your ideal product to grade style, what functionality would you expect it to have?
+\end{lstlisting}
+\vspace{7 mm}
+	\centering
+	\caption{Interview guide used on participants.}
+\end{figure}
+
+Before conducting the interviews, I expected a general consensus on the role of code style to be related to readability. I also expected all participants to care about code style in their courses to some extent, with more emphasis in their lower-level courses than upper-level. In my own experience as a Computer Science student, I have never received instruction on code style in a structured way, so I did not know what to expect for participants’ approach to teaching style. I knew that using student graders was a common method to grade style among some of the participants beforehand, and assumed that most of the other participants would use a comparable approach. Because of this, I was also unsure how willing participants would have been to using a hypothetical web application to replace their existing teaching and grading approaches. 
+
+When recruiting participants, I targeted professors teaching undergraduate-level courses that involve a coding component. After identifying the individuals that fit this profile in my immediate surroundings, I then reached out to 6 professors in the Computer Science department, and 2 professors in other departments to request for a 30 minute meeting with them. Of these invitations, only 4 Computer Science faculty responded and were available to meet within the time frame of making this report. Half of the meetings were in person, and the other half remote, and all meetings were recorded on Zoom in order to produce an audio transcript to analyze common themes and sentiments. Prior to asking any of the interview questions, all participants were also informed of a general description of the project and interview purpose, and asked for their consent to record the meeting.  
+
+\section{Evaluation}
+Because of the nature of this tutorial, there are not any direct evaluation metrics to measure the success of my user interviews. To reflect on the quality of the user interviews in general, I think that all of the interviews that were conducted were a success in terms of planning, moderation, and gathering information from participants that address each of the three question themes. However, the biggest area of deficiency in following the tutorial was the small sample size of participants I was able to meet with. The tutorial specifically mentions “for most interview studies, you only need 5 participants,” leaving this study to be one participant short. Regardless of this benchmark, I would have wanted to interview a couple more participants, especially those teaching non-Computer Science courses, for diversity. Still, to the purpose of informing my project, I believe the results of these user interviews will be very relevant.
+
+\section{Results and Discussion}
+In response to Question 1, all participants said that readability and following a convention or consistency were central to good code style. Although the participants varied in the comparative importance they perceived between readability versus consistency, these were two traits participants consistently mentioned without specific prompting. On readability, two participants elaborated that good code style should allow for easy collaboration between programmers and extendability to the code base. On consistency, all four participants expressed that there is no one universally correct convention across different programming languages, projects, and cultures. The two participants that stressed following convention and consistency as most important also saw it as a means to allow smooth collaboration. 
+
+These sentiments are inline with what I expected to hear, but I was surprised by the amount of variation in philosophies surrounding readability versus convention, for example, in a case where the two were at odds. In application to a style checker, adherence to convention is much easier to implement than general readability, which may be impossible to automatically check for, at least in the scope of this project. Thus, in order to properly assess code style according to conceptions of good code style of the target audience, the checker must use a convention that is equivalent to readability. However, since a universally correct convention does not exist, the checker must have some level of adaptability or customization. Specific features that could capture this were also mentioned in participants’ responses to Question 9.
+
+For Question 2, all participants expressed that code style plays a different role between their lower-level and upper-level courses. In the lower level courses, code style may be emphasized by participants to their students since it is a new skill they have not encountered before. As one participant also notes, it is important to learn and code with good style from the beginning because it would be harder to fix one’s stylistic habits later. Given the inexperience of the students and the straightforwardness of the assignments, code style is also treated as more simplistic. In contrast, students in upper-level, elective courses are expected to know and practice good code style. This is also reflected in all participants’ lack of explicit consideration for code style in their upper-level courses, whether it is teaching or grading style. 
+
+These responses give me context into where my project may be most useful among these courses. Specifically, I may target its use to be primarily for the lower-level, introductory courses. That would mean that the teaching side should assume no prior Computer Science knowledge and have a beginner-friendly UI. It may also mean that lower-level style considerations, such as whitespace and variable names, should be prioritized over more complex, architectural style considerations, such as code organization. 
+
+For Questions 3-5 touching on teaching code style, participants generally had less to say. In their lower-level courses, two participants said they talk about style briefly toward the beginning of the semester, and the other two participants do not explicitly teach code style. One of the participants that teach style also noted they believe their students also learn good style by observing the participant’s code style. None of the participants teach style in their upper-level courses, and neither have any of them used products to teach style. Overall, participants seemed like they were not concerned with spending a lot of effort or time in class to teach style. The two participants who teach style also later mentioned that they consider code style when grading assignments, so it could be that they do not think style needs much direct attention for students to grasp. It would be interesting to conduct another set of user interviews targeting Computer Science students to investigate their assessment of their understanding of style in relation to how much instruction they received on it. Without this information, it would be difficult to tell if a tech product that teaches style would not have a place in most CS classrooms, or if it actually addresses a need that is currently much neglected. But, these findings also show that an effective way to teach style is through example, which echoes one participant’s suggestion to Question 5. 
+
+Question 6 set up context for the remaining questions which were about grading code style. In their lower-level courses, all of the participants assigned a series of coding projects or homeworks throughout the semester, while assignments varied greatly between different electives. As previously mentioned, two of the participants grade for style on these lower-level assignments, with both using some kind of human grader–either teacher’s assistants or themselves. When asked why they prefer this method of grading style, both participants commented that grading with humans is actually faster and less work than using another tool. They also expressed that they did not find existing linters for Java up to par for use in their courses. Both participants also use a style sheet for Java as a guideline for the students and grading. However, the weight of the style grade is very low compared to the other parts of the projects, such as correctness. Another participant uses a scripts to check for adherence to some style convention in Python assignments in a lower-level course. In this participant’s upper-level courses, they prefer to not explicitly grade for style, but might address a student’s code style in a mandatory codewalk with them. The last participant does not grade for style in any of their courses, with the exception of requiring a “comment box” above all of the students’ functions. They believed that enforcing a certain style on students was too restrictive. Though interestingly, both this participant and one of the first two participants specifically mentioned they would consider style relatively heavily if they taught a software engineering course. 
+	
+Among all of the methods of grading style, using scripts seems most similar to my project idea, and it is a good sign that some participants already accept and use fully automatic style checking in their courses. This project can also be made to fit the other participants’ needs by addressing concerns of convenience and continuing to make the checker as adaptable to each professor’s style criteria as possible. All three of these participants noted style standards that are mostly automatable–style sheets and “comment boxes.” Of course, the difficulty in the non-automatable parts, such as informative variable names or comments, remains. Some of the participants’ answers to Question 9 address this problem. For instance, implementing corrections that are suggestive to a human grader could put the burden of these ambiguous tasks on the human, while still making grading easier. A suggestive correction could look like directing a human’s attention to each variable, and having them decide if it was named appropriately or not. As seen with the software engineering comment and the differences between participants’ grading criteria, a product that grades style must be able to adapt to different criteria. Some participants suggested allowing interchangeable, preset style checks, such as preferring tabs or 4 spaces, to accommodate the individual needs of a professor, course, or project. 
+
+
+\printbibliography 
+
+\end{document}
